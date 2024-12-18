@@ -22,21 +22,21 @@ export function Home() {
 
     setParticipants(prevState=> [...prevState, participantName]);
     setParticipantName('');
-    console.log(participants);
   }
 
   function handleParticipantRemove(name: string) {
+
     Alert.alert("Remover", `Remover o participante ${name} da lista?`, [
       {
         text: 'Sim',
-        onPress: () => Alert.alert("Deletado!")
+        onPress: () => setParticipants(prevState => prevState.filter(participant => participant !== name))
+
       },
       {
         text: 'Não',
         style: 'cancel'
       }
     ])
-    console.log(`Você clicou em remover o participante ${name}`);
   }
 
 
